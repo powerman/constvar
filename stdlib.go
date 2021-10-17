@@ -2,6 +2,4 @@ package constvar
 
 import "time"
 
-type Time time.Time
-
-func (c Time) Val() time.Time { return time.Time(c) }
+func Time(c time.Time) func() time.Time { return func() time.Time { return c } }

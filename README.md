@@ -23,7 +23,7 @@ main() {
 with this:
 
 ```go
-var appStart = constvar.Time(time.Now()).Val
+var appStart = constvar.Time(time.Now())
 
 main() {
     fmt.Println(appStart())
@@ -41,3 +41,16 @@ outside of defining global vars than usual variable assignment.
 It's now possible to set to `nil` global variables defined using constvar.
 This shouldn't be a real issue because this will result in run-time panic
 on accessing it value and thus won't go unnoticed.
+
+Code is more self-documented now. :)
+
+## Hints
+
+### Configuration for golangci-lint
+
+```yml
+issues:
+  exclude-rules:
+    - linters: gochecknoglobals
+    source: "constvar[.]"
+```

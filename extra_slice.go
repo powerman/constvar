@@ -3,6 +3,6 @@ package constvar
 import "github.com/shopspring/decimal"
 
 // Decimals is a github.com/shopspring/decimal.Decimal.
-type Decimals []decimal.Decimal
-
-func (c Decimals) Val() []decimal.Decimal { return []decimal.Decimal(c) }
+func Decimals(c []decimal.Decimal) func() []decimal.Decimal {
+	return func() []decimal.Decimal { return c }
+}
